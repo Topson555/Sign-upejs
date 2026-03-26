@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <style>
+       
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        
+        .auth-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #000;
+        }
+
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e1e8f0;
+            border-radius: 8px;
+            background-color: #ebf2ff;  
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        input:focus {
+            border: 1px solid #5a4ee4;
+        }
+
+        
+        .btn-signup {
+            width: 100%;
+            padding: 15px;
+            background-color: #5a4ee4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-signup:hover {
+            background-color: #4a3fd1;
+        }
+
+      
+        .footer-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer-text a {
+            color: #5a4ee4;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+    </style>
+
+
+
+    <div class="auth-card">
+        <h2>Create your account</h2>
+        
+        <form action="/register" method="POST">
+            <input type="text" name="Full Name" placeholder="Full Name" required>
+            <input type="email" email="Email Address" placeholder="Email Address" name="Email Address" required>
+            <input type="password" Password="password" placeholder="Password" name="Password" required >
+            <input type="password" Confirm Password="Confirm Password" placeholder="Confirm Password" name="Confirm Password" required>
+            
+            <button type="submit" class="btn-signup">Sign up</button>
+        </form>
+
+        <div class="footer-text">
+            Already have an account? <a href="#">Sign in</a>
+        </div>
+    </div>
+
+</body>
+</html>
