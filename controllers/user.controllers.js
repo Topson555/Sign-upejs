@@ -17,9 +17,11 @@ const postSignUp = (req, res) => {
     
     let salt = bcrypt.genSaltSync(10);
     let hashedPassword = bcrypt.hashSync(req.body.password, salt);
+    let hashedConfirmPassword = bcrypt.hashSync(req.body.confirmPassword, salt);
 
     //Overwrite the plain text password with the hashed password
     req.body.password = hashedPassword;
+    req.body.confirmPassword = hashedConfirmPassword;
 
     const user = req.body;
 
@@ -27,6 +29,7 @@ const postSignUp = (req, res) => {
     newUser.save()
         .then((user) => {
             newUser.password = hashedPassword;
+            newUser.confirmPassword = hashedConfirmPassword;
             console.log("User saved to DB:", user);
             res.redirect("/users/login");
             // res.send("You have successfully registered");
