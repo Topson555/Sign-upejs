@@ -94,11 +94,11 @@
     <div class="auth-card">
         <h2>Create your account</h2>
         
-        <form action="/register" method="POST">
-            <input type="text" name="Full Name" placeholder="Full Name" required>
-            <input type="email" email="Email Address" placeholder="Email Address" name="Email Address" required>
-            <input type="password" Password="password" placeholder="Password" name="Password" required >
-            <input type="password" Confirm Password="Confirm Password" placeholder="Confirm Password" name="Confirm Password" required>
+        <form action="/users/register" method="POST">
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" name="email" required>
+            <input type="password" placeholder="Password" name="password" required >
+            <input type="password" placeholder="Confirm Password" name="confirmPassword" required>
             
             <button type="submit" class="btn-signup">Sign up</button>
         </form>

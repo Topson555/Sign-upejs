@@ -96,15 +96,15 @@
 </style>
 
 
-    <form class="form">
+    <form action="/users/login" method="POST">
        <p class="form-title">Sign in to your account</p>
         <div class="input-container">
-          <input type="email" placeholder="Enter email">
+          <input type="email" name="email" placeholder="Enter email">
           <span>
           </span>
       </div>
       <div class="input-container">
-          <input type="password" placeholder="Enter password">
+          <input type="password" name="password" placeholder="Enter password">
         </div>
          <button type="submit" class="submit">
         Sign in
@@ -112,7 +112,7 @@
 
       <p class="signup-link">
         No account?
-        <a href="">Sign up</a>
+        <a href="/users/signup">Sign up</a>
       </p>
    </form>
 
