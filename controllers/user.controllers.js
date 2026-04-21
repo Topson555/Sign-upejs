@@ -19,6 +19,7 @@ const getDashboard = (req, res) => {
 const postSignup = (req, res) => {
     let salt = bcrypt.genSaltSync(10);
     let hashedPassword = bcrypt.hashSync(req.body.password, salt);
+
     
     // Overwrite the plain password with the hashed one
     req.body.password = hashedPassword;
@@ -77,7 +78,7 @@ const postSignup = (req, res) => {
             }
             });
 
-            res.redirect("/users/login");
+            res.redirect("/users/signin");
         })
         .catch((err) => {
             console.error("Error saving to DB:", err);
@@ -113,7 +114,7 @@ const postSignin = (req, res) => {
             console.log("Login Successful for", foundCustomers.email);
 
 
-            res.redirect("/user/dashboard");
+            res.redirect("/users/dashboard");
 
 
 
@@ -126,5 +127,24 @@ const postSignin = (req, res) => {
 }
 
 
+const getAllUsers = (req, res) => {
+    Customer.find()
+        .then((allUsers) => {
+            console.log("All users:", allUsers);
+            res.status(200).json(
+                {
+                    message: "Registered Users",
+                    users: allUsers
+                }
+            );
+        })
 
-module.exports = { postSignup, getSignup, postSignin, getSignin, getDashboard }
+                .catch((err) => {
+            console.error("Error fetching users:", err);
+            res.status(500).send("Internal server error");
+        });
+};
+
+
+
+module.exports = { postSignup, getSignup, postSignin, getSignin, getDashboard, getAllUsers }
